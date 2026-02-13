@@ -37,7 +37,51 @@ app.post('/sumar', (req, res) => { // http://localhost/sumar
 
   res.send({ resultado });
 });
+app.post('/restar', (req, res) => { // http://localhost/restar
+  const { num1, num2 } = req.body;// se declaran los datos de entrada
 
+  // Validar que se hayan enviado los dos números  que no esten vacio
+  if (!num1 || !num2) {
+    return res.status(400).send({ error: 'Faltan números para restar' });
+  }
+
+  // Restar los números
+  const resultado = num1 - num2;
+
+  // Enviar el resultado
+
+  res.send({ resultado });
+});
+app.post('/multiplicar', (req, res) => { // http://localhost/multiplicar
+  const { num1, num2 } = req.body;// se declaran los datos de entrada
+
+  // Validar que se hayan enviado los dos números  que no esten vacio
+  if (!num1 || !num2) {
+    return res.status(400).send({ error: 'Faltan números para multiplicar' });
+  }
+
+  // Sumar los números
+  const resultado = num1 * num2;
+
+  // Enviar el resultado
+
+  res.send({ resultado });
+});
+app.post('/dividir', (req, res) => { // http://localhost/dividir
+  const { num1, num2 } = req.body;// se declaran los datos de entrada
+
+  // Validar que se hayan enviado los dos números  que no esten vacio
+  if (!num1 || !num2) {
+    return res.status(400).send({ error: 'Faltan números para dividir' });
+  }
+
+  // Sumar los números
+  const resultado = num1 / num2;
+
+  // Enviar el resultado
+
+  res.send({ resultado });
+});
 
 app.listen(app.get('port'),()=>{
     console.log(`Server listening on port ${app.get('port')}`);
